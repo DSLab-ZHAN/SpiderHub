@@ -1,7 +1,7 @@
 # SpiderHub
 SpiderHub is a crawler package management repository for the TSDAP platform, designed to support various data sources and simplify data acquisition tasks. All crawler modules conform to standard interface specifications, facilitating integration and automated publishing.
 
-[中文文档](README_ZH.md)
+[中文文档](README_zh.md)
 
 ## Objectives
 SpiderHub aims to provide developers and users with a standardized crawler module management platform that ensures high-quality, maintainable crawler code with automated publishing for ease of use.
