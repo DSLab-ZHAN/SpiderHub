@@ -1,6 +1,6 @@
 # Spider ZIP Package Usage Documentation
 
-[中文文档](README_zh.MD)
+[中文文档](README_zh.md)
 
 ## Introduction
 
