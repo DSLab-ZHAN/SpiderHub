@@ -147,6 +147,28 @@ True on success, False on failure.
 
 ---
 
+#### `is_table_exists`
+Checks if a table exists.
+
+Function prototype:
+```python
+def is_table_exists(self,
+                    table_name: str
+                    ) -> bool:
+```
+
+Parameters
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `table_name` | str | Required | Name of the table to check |
+
+Returns
+
+True if the table exists, False otherwise.
+
+---
+
 #### `read_last_data`
 Reads the last data entry from a table, sorted by specified field.
 
