@@ -13,7 +13,7 @@ import logging
 
 from abc import ABC, abstractmethod
 from threading import Thread
-from typing import Any, Callable, Dict, Iterable, Literal, List, Mapping, Tuple
+from typing import Any, Callable, Dict, Iterable, Literal, List, Mapping, Tuple, Union
 
 
 class ISpider(ABC):
@@ -97,7 +97,7 @@ class ISpider(ABC):
 
     def read_stores(self,
                     name: str
-                    ) -> Dict[str, Any] | None:
+                    ) -> Union[Any, None]:
         """Some variables or data that need to be persistently stored, but are not datasets.
         This function will read it.
 
@@ -105,20 +105,20 @@ class ISpider(ABC):
             name (str): Variables name
 
         Returns:
-            Dict[str, Any] | None: If read successfully then return it else return `None`
+            Union[Any, None]: If read successfully then return it else return None
         """
         ...
 
     def write_stores(self,
                      name: str,
-                     store_data: Dict[str, Any]
+                     store_data: Any
                      ) -> bool:
         """Some variables or data that need to be persistently stored, but are not datasets.
         This function will write it.
 
         Args:
             name (str): Variables name
-            store_data (Dict[str, Any]): Variables dictionary
+            store_data (Any): Variables dictionary
 
         Returns:
             bool: Is the writing successful

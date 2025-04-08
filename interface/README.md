@@ -96,7 +96,7 @@ class ISpider(ABC):
 
 ### Method Specifications
 #### `alloc_thread`
-Requests a thread from the platform. Returns a Thread instance on success, otherwise None.
+Requests a thread from the platform.
 
 Function prototype:
 ```python
@@ -205,7 +205,7 @@ Function prototype:
 ```python
 def read_stores(self,
                 name: str
-                ) -> Dict[str, Any] | None:
+                ) -> Union[Any, None]:
 ```
 
 Parameters
@@ -216,7 +216,7 @@ Parameters
 
 Returns
 
-Data dictionary on success, None on failure.
+Data on success, None on failure.
 
 ---
 
@@ -227,7 +227,7 @@ Function prototype:
 ```python
 def write_stores(self,
                  name: str,
-                 store_data: Dict[str, Any]
+                 store_data: Any
                  ) -> bool:
 ```
 
@@ -236,7 +236,7 @@ Parameters
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `name` | str | Required | Unique variable identifier |
-| `store_data` | Dict[str, Any] | Required | Data dictionary to store |
+| `store_data` | Any | Required | Data dictionary to store |
 
 Returns
 
