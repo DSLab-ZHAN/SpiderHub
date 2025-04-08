@@ -147,6 +147,28 @@ def new_table(self,
 
 ---
 
+#### `is_table_exists`
+测试一张表是否存在
+
+函数原型
+```python
+def is_table_exists(self,
+                    table_name: str
+                    ) -> bool:
+```
+
+参数
+
+| 名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `table_name` | str | 必填	| 要测试的表名称 |
+
+返回
+
+如果存在返回 True，否则返回 False
+
+---
+
 #### `read_last_data`
 
 读取表中的最后一个数据，根据 `sorted_field` 字段进行排序。

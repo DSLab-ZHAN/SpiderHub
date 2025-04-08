@@ -65,6 +65,19 @@ class ISpider(ABC):
         """
         ...
 
+    def is_table_exists(self,
+                        table_name: str
+                        ) -> bool:
+        """Checks if a table exists.
+
+        Args:
+            table_name (str): Table's name
+
+        Returns:
+            bool: True if the table exists else False.
+        """
+        ...
+
     def read_last_data(self,
                        table_name: str,
                        sorted_field: str,
