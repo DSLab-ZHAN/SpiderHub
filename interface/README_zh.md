@@ -96,7 +96,7 @@ class ISpider(ABC):
 
 ### 方法说明
 #### `alloc_thread`
-向平台申请一个线程，成功返回 Thread 类实例，否则返回 None
+向平台申请一个线程
 
 函数原型
 ```python
@@ -208,7 +208,7 @@ None
 ```python
 def read_stores(self,
                 name: str
-                ) -> Dict[str, Any] | None:
+                ) -> Union[Any, None]:
 ```
 
 参数
@@ -219,7 +219,7 @@ def read_stores(self,
 
 返回
 
-成功返回数据字典，失败返回 None
+成功则返回对应数据，失败返回 None
 
 ---
 
@@ -231,7 +231,7 @@ def read_stores(self,
 ```python
 def write_stores(self,
                  name: str,
-                 store_data: Dict[str, Any]
+                 store_data: Any
                  ) -> bool:
 ```
 
@@ -240,7 +240,7 @@ def write_stores(self,
 | 名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
 | `name` | str | 必填	| 变量唯一标识 |
-| `store_data` | Dict[str, Any] | 必填 | 要存储的数据字典 |
+| `store_data` | Any | 必填 | 要存储的数据字典 |
 
 返回
 
