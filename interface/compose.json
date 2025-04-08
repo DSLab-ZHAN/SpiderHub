@@ -1,15 +1,16 @@
 {
+    "$schema": "./schema.json",
     "infos":{
-        "name": "test_spider",
-        "tag": "1.0",
-        "desc": "Just a test_spider",
-        "author": "慕璃muri"
+        "name": "your_spider_name",
+        "tag": "your_spider_tag",
+        "description": "your spider description",
+        "author": "author name"
     },
     "runtimes":{
-        "entry": "test_spider",
-        "daemon": true,
+        "entry": "entry_file",
+        "daemon": false,
         "envs": {},
-        "dependencies": ["requests"]
+        "dependencies": []
     },
     "schedules":{
         "cron": "0 0 * * * *"

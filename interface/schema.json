@@ -1,0 +1,91 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Spider Action Configuration Schema",
+    "description": "Schema for the spider configuration",
+    "type": "object",
+    "properties": {
+        "infos": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of spider, this will show on platform panel after loaded it.",
+                    "default": "enter_spider_name"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Tag of this spider, to mark different spider version.",
+                    "default": "1.0"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of this spider, this will show on platform panel after loaded it.",
+                    "default": "description"
+                },
+                "author": {
+                    "type": "string",
+                    "description": "Author name",
+                    "default": "Author"
+                }
+            },
+            "required": [
+                "name",
+                "tag",
+                "description",
+                "author"
+            ]
+        },
+        "runtimes": {
+            "type": "object",
+            "properties": {
+                "entry": {
+                    "type": "string",
+                    "description": "Entry file of this spider. Ignore the'.py' suffix when set in.",
+                    "default": ""
+                },
+                "daemon": {
+                    "type": "boolean",
+                    "description": "Indicate whether this spider is a resident spider.\nIf set to true, this spider will run continuously,\nand schedules.cron field will be ignore.",
+                    "default": false
+                },
+                "envs": {
+                    "type": "object",
+                    "description": "The environment variable during spider runtime,\nwhich can usually be used as a parameter setting for spider runtime.",
+                    "default": {}
+                },
+                "dependencies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "The third-party library that the spider relies on during runtime\nwill automatically install the missing third-party library upon startup.",
+                        "default": []
+                    }
+                }
+            },
+            "required": [
+                "entry",
+                "daemon",
+                "envs",
+                "dependencies"
+            ]
+        },
+        "schedules": {
+            "type": "object",
+            "properties": {
+                "cron": {
+                    "type": "string",
+                    "description": "Crontab expression for timed spider startup.\nFormat is 'secend minute hour day month week'",
+                    "default": "0 0 0 * * *"
+                }
+            },
+            "required": [
+                "cron"
+            ]
+        }
+    },
+    "required": [
+        "infos",
+        "runtimes",
+        "schedules"
+    ]
+}
