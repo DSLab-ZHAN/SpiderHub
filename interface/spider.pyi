@@ -13,7 +13,7 @@ import logging
 
 from abc import ABC, abstractmethod
 from threading import Thread
-from typing import Any, Callable, Dict, Iterable, Mapping
+from typing import Any, Callable, Dict, Iterable, Literal, List, Mapping, Tuple
 
 
 class ISpider(ABC):
@@ -62,6 +62,24 @@ class ISpider(ABC):
 
         Returns:
             bool: Is successful
+        """
+        ...
+
+    def read_last_data(self,
+                       table_name: str,
+                       sorted_field: str,
+                       sorted_n: int = 1,
+                       sorted_method: Literal['ASC', 'DESC'] = 'DESC') -> List[Tuple]:
+        """Read the last data, sorted by argument of 'sorted_field'.
+
+        Args:
+            table_name (str): Table's name
+            sorted_field (str): Basis of sorting
+            sorted_n (int): Retrieve n sorted data items. Defaults to 1.
+            sorted_method (Literal['ASC', 'DESC']): Sort order. Defaults to 'DESC'.
+
+        Returns:
+            List[Tuple]: The last data
         """
         ...
 
